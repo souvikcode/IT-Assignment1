@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IT-Assignment-1</title>
+
+	<script type="text/javascript">
+		
+		function updatetime() {
+			setInterval(displaytime, 500)
+		}
+
+		function displaytime() {
+
+			
+			var h, m, s, o
+                        h = document.getElementById("hours").value
+			m = document.getElementById("minutes").value
+			s = document.getElementById("seconds").value
+                        var now = new Date()
+			var present_h = now.getHours()
+			var present_m = now.getMinutes()
+			var present_s = now.getSeconds()
+
+			o = present_h + " : " + present_m + " : " + present_s
+
+			
+			if(h <= present_h  && m <= present_m && s <= present_s )
+				o = o.fontcolor("red")
+			
+
+			
+			document.getElementById("output").innerHTML = o
+	       }
+	</script>
+
+</head>
+<body>
+
+	<!-- Input Form for the time -->
+	<form class="form-inline" onchange="updatetime()">
+		<input type="number" name="hours" id="hours" maxlength="2"> :
+		<input type="number" name="minutes" id="minutes" maxlength="2"> :
+		<input type="number" name="seconds" id="seconds" maxlength="2">
+	</form>
+
+	<!-- Display the time -->
+	<p id="output"></p>
+
+</body>
+</html>
